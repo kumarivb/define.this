@@ -1,0 +1,38 @@
+<!-- Handlebars.registerPartial('card', '{{card}}') -->
+
+<div class="card" id="card-id">
+<!-- Card Header: Title - User - Info -->
+    <div class="card-head" id=>
+        {{#with author.[i]}}
+            <h2>This.Asked: {{askId}}</h2>
+            <div>{{qUsername}}</div>
+            <div>{{extraInfo}}</div>
+        {{/with}}
+    </div>
+<!-- End Card Header -->
+<!-- Card Main: Title - User - Info -->
+    <div class="card-main" id=>
+        {{#with author.[x]}}
+            <h2>This.Answerd</h2>
+            <div>{{anUsername}}</div>
+            <div>{{highestRep}}</div>
+        {{/with}}
+    <div>
+<!-- End Card Main -->
+<!-- Card Footer: Tags - DwnButton - Reply - Votes -->
+    <div class="card-foot" id="">
+        {{Tags}}
+        <button type="button" class="view-more-btn" id="qst-pg-button">V</button>
+        <button type="button" class="reply-btn" id="reply-button">Reply</button>
+        <div>Upvote-Downvote</div>
+    </div>
+<!-- End Card Footer -->
+<!-- Card NoAnwser: Text - Reply -->
+{{else}}
+    <div>
+        <p>No Reply has been made here yet, would you like to add one?</p>
+        <button type="button" class="reply-btn" id="reply-button">Reply</button>
+    </div>
+{{/else}}
+<!-- End NoAnwser: -->
+</div>
