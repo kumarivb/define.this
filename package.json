@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/kumarivb/define.this#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.10",
     "mysql": "^2.15.0",
     "sequelize": "^4.37.0"
   },
