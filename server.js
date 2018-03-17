@@ -13,9 +13,9 @@ var app = express();
 // Static directory to be served
 app.use(express.static(__dirname + "/public"));
 
-// partials
-handlebars.registerPartial('partial', fs.readFileSync(__dirname + '/views/partials/card.handlebars', 'utf8'));
-handlebars.registerPartials(__dirname + '/views/partials');
+// // partials
+// handlebars.registerPartial('partial', fs.readFileSync(__dirname + '/views/partials/card.handlebars', 'utf8'));
+// handlebars.registerPartials(__dirname + '/views/partials');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ 
