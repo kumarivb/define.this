@@ -3,6 +3,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var exphbs = require("express-handlebars");
+var handlebars = require('handlebars');
+var fs = require('fs');
 
 var PORT = process.env.PORT || 3000;
 
@@ -13,9 +15,9 @@ var app = express();
 // Static directory to be served
 app.use(express.static(__dirname + "/public"));
 
-// // partials
-// handlebars.registerPartial('partial', fs.readFileSync(__dirname + '/views/partials/card.handlebars', 'utf8'));
-// handlebars.registerPartials(__dirname + '/views/partials');
+// partials
+// handlebars.registerPartial('partial', fs.readFileSync(__dirname + '/views/partials/', 'utf8'));
+// handlebars.registerPartials(__dirname + '/views/partials/');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ 
@@ -36,6 +38,7 @@ app.engine("handlebars", exphbs({
 // set the view engine to use handlebars
 app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/views/partials')
 
 // routes
 var routes = require("./controllers/controller.js");
