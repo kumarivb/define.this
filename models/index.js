@@ -1,5 +1,8 @@
 'use strict';
 
+// import orm
+var orm = require("../config/orm.js");
+
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
