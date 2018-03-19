@@ -1,8 +1,5 @@
 'use strict';
 
-// import orm
-// var orm = require("../config/orm.js");
-
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
@@ -29,7 +26,9 @@ fs
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
   .forEach(file => {
+    console.log("hey" + path.join(__dirname, file));
     var model = sequelize['import'](path.join(__dirname, file));
+    console.log("hi" + model.toString());
     db[model.name] = model;
   });
 
