@@ -1,14 +1,22 @@
 'use strict';
 
+<<<<<<< HEAD
+=======
+// import orm
+// var orm = require("../config/orm.js");
+
+>>>>>>> 057b3fd5d5366576a0728bbe37526c152de1d442
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
 var basename  = path.basename(__filename);
 var env       = process.env.NODE_ENV || 'development';
+
 // var config    = require(__dirname + '../../config\config.json')[env];
 console.log("dirname=" + __dirname);
-console.log(__dirname + "/../config/config.json");
-var config    = require(__dirname + "/../config/config.json")[env];
+
+var config    = require(__dirname + "./../config/config.json")[env];
+console.log(config);
 
 var db        = {};
 
