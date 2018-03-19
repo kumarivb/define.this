@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "Aero$334",
     "database": "definethis_db",
     "host": "localhost",
     "dialect": "mysql"
