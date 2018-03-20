@@ -1,11 +1,6 @@
 'use strict';
 
-<<<<<<< HEAD
-=======
-// import orm
-// var orm = require("../config/orm.js");
 
->>>>>>> 057b3fd5d5366576a0728bbe37526c152de1d442
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
