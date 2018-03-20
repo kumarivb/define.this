@@ -6,7 +6,8 @@ var exphbs = require("express-handlebars");
 var handlebars = require('handlebars');
 var fs = require('fs');
 
-var PORT = process.env.PORT || 3000;
+// bring in the models
+var db = require("./models");
 
 // express app
 var app = express();
@@ -38,13 +39,16 @@ app.engine("handlebars", exphbs({
 // set the view engine to use handlebars
 app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views');
-app.set('views', __dirname + '/views/partials')
-
+// app.set('views', __dirname + '/views/partials')
+app.get('/', function (req, res) {
+    res.render('index', {});
+  });
 // routes
 var routes = require("./controllers/controller.js");
 app.use("/", routes);
 
 // Starts the server to begin listening
+var PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
