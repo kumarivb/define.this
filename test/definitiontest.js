@@ -8,8 +8,10 @@ var expect = require('chai').expect;
 describe('Entry', function () {
   it('should load', function (done) {
     Entry.create({
-      entry: "JSON",
+      definition: "JSON",
       userId: "23",
+      entryId: "14",
+      netRating: "0",
       context: "This is JSON.",
       contextLink: "URL"
     });
