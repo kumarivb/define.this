@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING(40),
 			allowNull: false
 		},
-		userid: {
+		userId: {
 			type: DataTypes.INTEGER,
 			allowNull: false
 		},
