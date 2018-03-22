@@ -7,4 +7,5 @@
     db.Todo.create({
       text: req.body.text,
       complete: req.body.complete
-    }).then(function(dbTodo) {
+    }).then(function(dbTodo)
+    
