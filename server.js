@@ -44,9 +44,10 @@ app.get('/', function (req, res) {
     res.render('index', {});
   });
 // routes
-var routes = require("./controllers/controller.js");
-app.use("/", routes);
-
+// var routes = require("./controllers/controller.js");
+// app.use("/", routes);
+var test = require("./routes/test-route");
+test(app);
 // Starts the server to begin listening
 var PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
