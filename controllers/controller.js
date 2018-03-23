@@ -1,7 +1,7 @@
 // import express and index.js
 var express = require("express");
 // dt = define this
-var dt = require("../models/index.js");
+var db = require("../models");
 
 // router
 var router = express.Router();
@@ -15,8 +15,8 @@ var router = express.Router();
 
     router.get("/cards", function(req, res) {
         // replace old function with sequelize function
-        Entries.findAll({
-            include: [db.Definitions],
+        db.definethis.findAll({
+            include: [db.Entries],
             order: [
               ["entry", "ASC"]
             ]
@@ -27,7 +27,7 @@ var router = express.Router();
                 console.log(definethis_db);
                 // into the main index, updating the page
                 var hbsObject = {
-                    entries: dbEntries
+                    entries: definethis_db
                   };
                 return res.render("index", hbsObject);
         });

@@ -1,37 +1,58 @@
-<!-- Handlebars.registerPartial('card', '{{card}}') -->
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6 text-center" class="task">
+			<div class="row">
+			  {{#each burger}}
+			  	{{#unless this.devoured}}
+				<div class="col-xs-9 text-center">
+					<pre>{{this.id}}. {{this.burger_name}}
+					</pre>
+				  		<!-- {{this.Date}} -->
+				</div>
+				<div class="col-xs-3 text-center">
+					<form class="button-size devour-form">
+						<input input type="hidden" type="text" class="burger_id" value={{this.id}}>	
+						<!-- Solution 2 Edit: Added input for a customer name -->
+						<input class="custInput" input type="text" placeholder="Customer?"><br>'
+						<!-- end edit -->
+						<button type="submit" class="btn btn-default">Devour it!</button>
+					</form>
+				</div>
+				{{/unless}}
+			  {{/each}}
+			</div>
+		</div>
+		<div class="col-xs-6 text-center" class="task">
+			  {{#each burger}}
+			  	{{#if this.devoured}}
+				<!-- 
+					Solution 2 Edit: If a customer name gets sent with a burger
+					list the customers name
+					-->
 
-<div class="" id="">
-Hello?
-    {{#each Entries}}
-		<p>Text : {{this.id}}. {{this.entry}}</p>
-		{{!-- <input input type="hidden" type="text" class="burger_id" value={{this.id}}>	 --}}
-						
-	{{/each}}
-{{!-- <!-- Card Header: Title - User - Info -->
-        {{#with author.[i]}}
-            <h4>This.Asked: {{askId}}</h4>
-            <div>{{qUsername}}</div>
-            <div>{{extraInfo}}</div>
-        {{/with}}
-<!-- End Card Header -->
-<!-- Card Main: Title - User - Info -->
-        {{#with author.[x]}}
-            <h4>This.Answerd</h4>
-            <div>{{anUsername}}</div>
-            <div>{{highestRep}}</div>
-        {{/with}}
-<!-- End Card Main -->
-<!-- Card Footer: Tags - DwnButton - Reply - Votes -->
-        {{Tags}}
-        <button type="button" class="view-more-btn" id="qst-pg-button">V</button>
-        <button type="button" class="reply-btn" id="reply-button">Reply</button>
-        <div>Upvote-Downvote</div>
-<!-- End Card Footer -->
-<!-- Card NoAnwser: Text - Reply -->
-{{!-- {{else}} --}}
-    
-        {{!-- <p>No Reply has been made here yet, would you like to add one?</p>
-        <button type="button" class="reply-btn" id="reply-button">Reply</button> --}}
-{{!-- {{/else}} --}}
-<!-- End NoAnwser: --> 
+			  		{{#if this.Customer.customer}}
+			  			<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}  (Eaten by {{this.Customer.customer}}) " readonly>
+					<!-- 
+					Solution 2 Edit: If there is no customer name,
+					just list the burger.
+						-->
+			  		{{else}}
+			  			<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
+			  		{{/if}}
+				{{/if}}
+			  {{/each}}
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 text-center enter_section">
+			<form action="/burgers/create" method="POST">
+				<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
+				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+			</form>
+			<p>Enter a burger you want to eat Click the "Submit" button.</p>
+		</div>
+	</div>
 </div>

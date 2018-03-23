@@ -1,11 +1,11 @@
 console.log("Hello");
 module.exports = function(sequelize, DataTypes) {
 	var Entries = sequelize.define("Entries", {
-    //   id: {
-    //         type: Sequelize.INTEGER,
-    //         autoIncrement: true,
-    //         primaryKey: true
-    //     },
+      id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
 		entry: {
 			type: DataTypes.STRING(40),
 			allowNull: false
@@ -22,8 +22,14 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING(200),
 			allowNull: true
 		}
-	});
-	console.log("This is:" + Entries);
+    }, {
+        classMethods: {
+            associate: function(models) {
+              // associations can be defined here
+            }
+          }
+    });
+    console.log("ENTRIES ENTRIES:" + Entries);
 	return Entries;
 	
 };
