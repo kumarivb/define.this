@@ -1,6 +1,5 @@
 'use strict';
 
-
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
@@ -42,4 +41,6 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+db.Definition.belongsTo(db.Entry);
+db.Entry.hasMany(db.Definition);
 module.exports = db;
