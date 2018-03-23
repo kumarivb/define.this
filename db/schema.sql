@@ -1,5 +1,3 @@
-DROP DATABASE definethis_db;
-
 CREATE DATABASE definethis_db;
 USE  definethis_db;
 
