@@ -1,10 +1,11 @@
+console.log("Hello");
 module.exports = function(sequelize, DataTypes) {
-	var Entry = sequelize.define("Entry", {
-        id: {
-            type: Sequelize.INTEGER,
-            autoIncrement: true,
-            primaryKey: true
-        },
+	var Entries = sequelize.define("Entries", {
+    //   id: {
+    //         type: Sequelize.INTEGER,
+    //         autoIncrement: true,
+    //         primaryKey: true
+    //     },
 		entry: {
 			type: DataTypes.STRING(40),
 			allowNull: false
@@ -22,5 +23,7 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: true
 		}
 	});
-	return Entry;
+	console.log("This is:" + Entries);
+	return Entries;
+	
 };
