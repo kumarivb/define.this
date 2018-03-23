@@ -1,5 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
 	var Definition = sequelize.define("Definition", {
+ v      id: {
+            type: Sequelize.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
 		definition: {
 			type: DataTypes.STRING(420),
 			allowNull: false
@@ -8,8 +13,13 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.INTEGER,
 			allowNull: false
 		},
+ 
 		entryId: {
 			type: DataTypes.INTEGER,
+			references: {
+				model: Entry,
+				key: 'id'
+			},
 			allowNull: false
 		},
 		netRating: {

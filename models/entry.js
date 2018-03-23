@@ -1,5 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
 	var Entry = sequelize.define("Entry", {
+        id: {
+            type: Sequelize.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
 		entry: {
 			type: DataTypes.STRING(40),
 			allowNull: false
