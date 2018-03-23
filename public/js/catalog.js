@@ -1,6 +1,8 @@
 $(document).ready(function() {
     // card container
-    var cardContainer = $(".indexCard");
+    var cardContainer = {
+        
+    }
 });
 
 // grab context info from db
