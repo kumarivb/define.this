@@ -41,6 +41,7 @@ app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views');
 // app.set('views', __dirname + '/views/partials')
 app.get('/', function (req, res) {
+    //res.render('partials/card', {});
     res.render('index', {});
   });
 // routes

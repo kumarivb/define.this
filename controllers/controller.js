@@ -15,14 +15,24 @@ var router = express.Router();
 
     router.get("/cards", function(req, res) {
         // replace old function with sequelize function
-        definethis_db.findAll()
+        Entries.findAll({
+            include: [db.Definitions],
+            order: [
+              ["entry", "ASC"]
+            ]
+          })
+        })
             // use promise method to pass the burgers...
             .then(function(definethis_db) {
                 console.log(definethis_db);
                 // into the main index, updating the page
+                var hbsObject = {
+                    entries: dbEntries
+                  };
                 return res.render("index", hbsObject);
         });
-    });
+    //});
+
 
     // router.get("/cards", function(req, res) {
     //     // replace old function with sequelize function

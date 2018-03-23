@@ -1,7 +1,13 @@
 <!-- Handlebars.registerPartial('card', '{{card}}') -->
 
 <div class="" id="">
-<!-- Card Header: Title - User - Info -->
+Hello?
+    {{#each Entries}}
+		<p>Text : {{this.id}}. {{this.entry}}</p>
+		{{!-- <input input type="hidden" type="text" class="burger_id" value={{this.id}}>	 --}}
+						
+	{{/each}}
+{{!-- <!-- Card Header: Title - User - Info -->
         {{#with author.[i]}}
             <h4>This.Asked: {{askId}}</h4>
             <div>{{qUsername}}</div>
@@ -24,8 +30,8 @@
 <!-- Card NoAnwser: Text - Reply -->
 {{!-- {{else}} --}}
     
-        <p>No Reply has been made here yet, would you like to add one?</p>
-        <button type="button" class="reply-btn" id="reply-button">Reply</button>
+        {{!-- <p>No Reply has been made here yet, would you like to add one?</p>
+        <button type="button" class="reply-btn" id="reply-button">Reply</button> --}}
 {{!-- {{/else}} --}}
-<!-- End NoAnwser: -->
+<!-- End NoAnwser: --> 
 </div>

@@ -41,6 +41,6 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.Definition.belongsTo(db.Entry);
-db.Entry.hasMany(db.Definition);
+db.Definition.belongsTo(db.Entries);
+db.Entries.hasMany(db.Definition);
 module.exports = db;
