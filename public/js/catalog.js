@@ -10,6 +10,6 @@ getContext();
 function getContext() {
     $.post("/api/getfirstentry", function(data) {
         context = data;
-        console.log(data);
+console.log(data);
     });
 }

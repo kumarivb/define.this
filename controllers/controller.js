@@ -1,36 +1,66 @@
 // import express and index.js
 var express = require("express");
-// dt = define this
-var dt = require("../models/index.js");
 
 // router
 var router = express.Router();
 
-// routes
-    // create routes here
-    // get route -> index, Sets the Main Server Page to Index
-    router.get("/", function(req, res) {
-        res.redirect("/index");
-    });
+// get models
+var db = require("../models");
 
-    router.get("/cards", function(req, res) {
-        // replace old function with sequelize function
-        Entries.findAll({
-            include: [db.Definitions],
-            order: [
-              ["entry", "ASC"]
-            ]
-          })
-        })
-            // use promise method to pass the burgers...
-            .then(function(definethis_db) {
-                console.log(definethis_db);
-                // into the main index, updating the page
-                var hbsObject = {
-                    entries: dbEntries
-                  };
-                return res.render("index", hbsObject);
-        });
+
+
+// routes
+// create routes here
+// get route -> index, Sets the Main Server Page to Index
+router.get("/", function(req, res) {
+    res.redirect("/Definitions");
+});
+
+router.get("/Definitions", function(req, res) {
+    db.Def.findAll ()
+
+    .then(function(dbDef) {
+        console.log(dbDef);
+        
+        var hbsObject = {
+            definition: dbDef
+        };
+        return res.render("card", { hbsObject });
+    });
+});
+
+// put route -> back to index
+router.put("/Definitions/:id", function(req, res) {
+    def.update(req.params.id, function(result) {
+      // wrapper for orm.js that using MySQL update callback will return a log to console,
+      // render back to index with handle
+      console.log(result);
+      // Send back response and let page reload from .then in Ajax
+      res.sendStatus(200);
+    });
+  });
+
+
+
+
+    // router.get("/Definitions", function(req, res) {
+    //     // replace old function with sequelize function
+    //     definitions.all(function(defData)({
+    //         include: [db.Definitions],
+    //         order: [
+    //           ["entry", "ASC"]
+    //         ]
+    //       })
+    //     })
+    //         // use promise method to pass the burgers...
+    //         .then(function(definethis_db) {
+    //             console.log(definethis_db);
+    //             // into the main index, updating the page
+    //             var hbsObject = {
+    //                 entries: dbEntries
+    //               };
+    //             return res.render("index", hbsObject);
+    //     });
     //});
 
 

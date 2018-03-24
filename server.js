@@ -45,12 +45,18 @@ app.get('/', function (req, res) {
     res.render('index', {});
   });
 // routes
-// var routes = require("./controllers/controller.js");
-// app.use("/", routes);
+var routes = require("./controllers/controller");
+
+app.use(routes);
+// still need update and create
+
 var test = require("./routes/test-route");
 test(app);
 // Starts the server to begin listening
 var PORT = process.env.PORT || 3000;
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+
+db.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+    });
 });
